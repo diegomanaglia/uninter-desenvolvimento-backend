@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -79,6 +80,32 @@ public class PedidoController {
 
 		pedidoRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
+	}
+
+	// PUT /pedidos/{id}
+	@PutMapping("/{id}")
+	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody Pedido dadosNovos) {
+		Optional<Pedido> pedidoExistente = pedidoRepository.findById(id);
+
+		if (pedidoExistente.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		// mesma conferência do POST: não deixa trocar para um cliente ou produto que não existe
+		if (dadosNovos.getClienteId() == null || !clienteRepository.existsById(dadosNovos.getClienteId())) {
+			return ResponseEntity.badRequest().body("Cliente não encontrado");
+		}
+
+		if (dadosNovos.getProdutoId() == null || !produtoRepository.existsById(dadosNovos.getProdutoId())) {
+			return ResponseEntity.badRequest().body("Produto não encontrado");
+		}
+
+		Pedido pedido = pedidoExistente.get();
+		pedido.setClienteId(dadosNovos.getClienteId());
+		pedido.setProdutoId(dadosNovos.getProdutoId());
+		pedido.setQuantidade(dadosNovos.getQuantidade());
+
+		return ResponseEntity.ok(pedidoRepository.save(pedido));
 	}
 
 }

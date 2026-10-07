@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,6 +68,24 @@ public class ClienteController {
 		clienteRepository.deleteById(id);
 		// 204 (No Content) = deu certo, mas não tem nada para devolver
 		return ResponseEntity.noContent().build();
+	}
+
+	// PUT /clientes/{id} -> atualiza os dados de um cliente que já existe
+	@PutMapping("/{id}")
+	public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente dadosNovos) {
+		Optional<Cliente> clienteExistente = clienteRepository.findById(id);
+
+		if (clienteExistente.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		// pega o cliente que está no banco e troca só os campos (o id continua o mesmo)
+		Cliente cliente = clienteExistente.get();
+		cliente.setNome(dadosNovos.getNome());
+		cliente.setClienteDesde(dadosNovos.getClienteDesde());
+
+		// o save com um id que já existe faz um UPDATE no banco, e não um INSERT
+		return ResponseEntity.ok(clienteRepository.save(cliente));
 	}
 
 }
