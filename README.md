@@ -65,6 +65,16 @@ Com a aplicação rodando, acessar `http://localhost:8080/h2-console` e usar:
 - **User Name:** `sa`
 - **Password:** (deixar em branco)
 
+## Testes no Postman
+
+A coleção com todas as requisições está em `postman/baozi-store.postman_collection.json`.
+
+1. No Postman, clicar em **Import** e escolher esse arquivo.
+2. Rodar a aplicação (`.\mvnw.cmd spring-boot:run`).
+3. Executar as pastas **na ordem** (1, 2, 3, 4 e 5), porque os ids dependem dessa ordem. Se reiniciar a aplicação, começar de novo pela pasta 1.
+
+A URL base fica na variável `baseUrl` da coleção (`http://localhost:8080`).
+
 ## Entidades
 
 | Entidade | Campos |
