@@ -43,11 +43,13 @@ No Linux/Mac:
 ./mvnw spring-boot:run
 ```
 
-No Windows:
+No Windows (terminal do VS Code ou PowerShell):
 
-```bash
-mvnw.cmd spring-boot:run
+```powershell
+.\mvnw.cmd spring-boot:run
 ```
+
+> No PowerShell é obrigatório usar o `.\` antes do `mvnw.cmd`. Sem ele aparece o erro "O termo 'mvnw.cmd' não é reconhecido".
 
 A API fica disponível em `http://localhost:8080`.
 
