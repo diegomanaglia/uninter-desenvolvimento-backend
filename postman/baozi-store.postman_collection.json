@@ -29,7 +29,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"DiegoManaglia5565650\",\n  \"clienteDesde\": \"2026-10-07\"\n}",
+              "raw": "{\n  \"nome\": \"DiegoManaglia5565650\",\n  \"clienteDesde\": \"2026-10-09\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -59,7 +59,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Baozi de Frango\",\n  \"preco\": 39.99,\n  \"estoque\": true\n}",
+              "raw": "{\n  \"nome\": \"Baozi de Frango\",\n  \"preco\": 12.99,\n  \"estoque\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -233,7 +233,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"ClienteExtra\",\n  \"clienteDesde\": \"2026-10-07\"\n}",
+              "raw": "{\n  \"nome\": \"ClienteExtra\",\n  \"clienteDesde\": \"2026-10-09\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -397,7 +397,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"DiegoManaglia5565650\",\n  \"clienteDesde\": \"2026-10-07\"\n}",
+              "raw": "{\n  \"nome\": \"DiegoManaglia5565650\",\n  \"clienteDesde\": \"2026-03-05\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -428,7 +428,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Baozi de Frango\",\n  \"preco\": 39.99,\n  \"estoque\": true\n}",
+              "raw": "{\n  \"nome\": \"Baozi de Frango\",\n  \"preco\": 19.99,\n  \"estoque\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -459,7 +459,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 6\n}",
+              "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 3\n}",
               "options": {
                 "raw": {
                   "language": "json"
